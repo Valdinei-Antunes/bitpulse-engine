@@ -1,0 +1,25 @@
+{
+  "name": "bitpulse-engine",
+  "version": "1.0.0",
+  "description": "bitpulse",
+  "homepage": "https://github.com/Valdinei-Antunes/bitpulse-engine#readme",
+  "bugs": {
+    "url": "https://github.com/Valdinei-Antunes/bitpulse-engine/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Valdinei-Antunes/bitpulse-engine.git"
+  },
+  "license": "ISC",
+  "author": "Valdinei",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "x",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}

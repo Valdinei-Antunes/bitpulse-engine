@@ -1,0 +1,237 @@
+{
+  "info": {
+    "name": "BitPulse Engine - Testes de API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Teste 1 - POST /gate",
+      "item": [
+        {
+          "name": "CT01 - Porta AND com entradas válidas (1,1)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gate\": \"AND\",\n  \"a\": 1,\n  \"b\": 1\n}"
+            },
+            "url": { "raw": "http://localhost:3000/gate", "host": ["localhost"], "port": "3000", "path": ["gate"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code deve ser 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "pm.test(\"Saída deve ser 1 (AND 1,1)\", function () {",
+                "    var json = pm.response.json();",
+                "    pm.expect(json.saida).to.eql(1);",
+                "});",
+                "pm.test(\"Status deve ser sucesso\", function () {",
+                "    var json = pm.response.json();",
+                "    pm.expect(json.status).to.eql(\"sucesso\");",
+                "});"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "CT02 - Porta AND com entradas válidas (1,0)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gate\": \"AND\",\n  \"a\": 1,\n  \"b\": 0\n}"
+            },
+            "url": { "raw": "http://localhost:3000/gate", "host": ["localhost"], "port": "3000", "path": ["gate"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code deve ser 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "pm.test(\"Saída deve ser 0 (AND 1,0)\", function () {",
+                "    var json = pm.response.json();",
+                "    pm.expect(json.saida).to.eql(0);",
+                "});"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "CT03 - Porta inválida",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gate\": \"NAND\",\n  \"a\": 1,\n  \"b\": 1\n}"
+            },
+            "url": { "raw": "http://localhost:3000/gate", "host": ["localhost"], "port": "3000", "path": ["gate"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code deve ser 400\", function () {",
+                "    pm.response.to.have.status(400);",
+                "});",
+                "pm.test(\"Mensagem de porta inválida\", function () {",
+                "    var json = pm.response.json();",
+                "    pm.expect(json.mensagem).to.eql(\"Porta lógica inválida\");",
+                "});"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "CT04 - Entrada A inválida",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gate\": \"AND\",\n  \"a\": 5,\n  \"b\": 1\n}"
+            },
+            "url": { "raw": "http://localhost:3000/gate", "host": ["localhost"], "port": "3000", "path": ["gate"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code deve ser 400\", function () {",
+                "    pm.response.to.have.status(400);",
+                "});",
+                "pm.test(\"Mensagem de entrada inválida\", function () {",
+                "    var json = pm.response.json();",
+                "    pm.expect(json.mensagem).to.eql(\"Entrada A inválida. Use 0 ou 1.\");",
+                "});"
+              ]
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Teste 2 - POST /ieee754",
+      "item": [
+        {
+          "name": "CT01 - Decimal positivo válido (0.5)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"valor\": 0.5\n}"
+            },
+            "url": { "raw": "http://localhost:3000/ieee754", "host": ["localhost"], "port": "3000", "path": ["ieee754"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code deve ser 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "pm.test(\"Sinal deve ser 0 (positivo)\", function () {",
+                "    var json = pm.response.json();",
+                "    pm.expect(json.ieee754.sinal).to.eql(\"0\");",
+                "});",
+                "pm.test(\"Resposta contém os campos IEEE 754\", function () {",
+                "    var json = pm.response.json();",
+                "    pm.expect(json.ieee754).to.have.property(\"sinal\");",
+                "    pm.expect(json.ieee754).to.have.property(\"expoente\");",
+                "    pm.expect(json.ieee754).to.have.property(\"mantissa\");",
+                "    pm.expect(json.ieee754).to.have.property(\"binario32\");",
+                "});"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "CT02 - Decimal negativo válido (-3.14)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"valor\": -3.14\n}"
+            },
+            "url": { "raw": "http://localhost:3000/ieee754", "host": ["localhost"], "port": "3000", "path": ["ieee754"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code deve ser 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "pm.test(\"Sinal deve ser 1 (negativo)\", function () {",
+                "    var json = pm.response.json();",
+                "    pm.expect(json.ieee754.sinal).to.eql(\"1\");",
+                "});"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "CT03 - Valor ausente",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": { "raw": "http://localhost:3000/ieee754", "host": ["localhost"], "port": "3000", "path": ["ieee754"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code deve ser 400\", function () {",
+                "    pm.response.to.have.status(400);",
+                "});",
+                "pm.test(\"Mensagem de valor ausente\", function () {",
+                "    var json = pm.response.json();",
+                "    pm.expect(json.mensagem).to.eql(\"Campo valor é obrigatório\");",
+                "});"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "CT04 - Valor não numérico",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"valor\": \"abc\"\n}"
+            },
+            "url": { "raw": "http://localhost:3000/ieee754", "host": ["localhost"], "port": "3000", "path": ["ieee754"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code deve ser 400\", function () {",
+                "    pm.response.to.have.status(400);",
+                "});",
+                "pm.test(\"Mensagem de valor inválido\", function () {",
+                "    var json = pm.response.json();",
+                "    pm.expect(json.mensagem).to.eql(\"Valor inválido. Informe um número decimal.\");",
+                "});"
+              ]
+            }
+          }]
+        }
+      ]
+    }
+  ]
+}

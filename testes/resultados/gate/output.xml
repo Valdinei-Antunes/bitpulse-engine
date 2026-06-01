@@ -1,319 +1,319 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.5 on win32)" generated="2026-05-31T22:06:06.360755" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.5 on win32)" generated="2026-05-31T22:25:25.263502" rpa="false" schemaversion="5">
 <suite id="s1" name="Gate" source="C:\bitpulse-engine\testes\gate.robot">
 <kw name="Abrir navegador" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:06.898688" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2026-05-31T22:25:25.778013" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-31T22:06:06.898183" elapsed="4.738435"/>
+<status status="PASS" start="2026-05-31T22:25:25.777496" elapsed="1.706537"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-05-31T22:06:11.637152" elapsed="0.093061"/>
+<status status="PASS" start="2026-05-31T22:25:27.484486" elapsed="0.058475"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${SELECT_GATE}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-31T22:06:11.730674" elapsed="0.076407"/>
+<status status="PASS" start="2026-05-31T22:25:27.543229" elapsed="0.050136"/>
 </kw>
-<status status="PASS" start="2026-05-31T22:06:06.896956" elapsed="4.910364"/>
+<status status="PASS" start="2026-05-31T22:25:25.775759" elapsed="1.817813"/>
 </kw>
 <test id="s1-t1" name="CT01 - Porta AND com entradas 1 e 1 retorna saida 1" line="20">
 <kw name="Selecionar porta">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:11.812034" level="INFO">Opening url 'http://localhost:3000'</msg>
+<msg time="2026-05-31T22:25:27.595673" level="INFO">Opening url 'http://localhost:3000'</msg>
 <arg>${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-05-31T22:06:11.811714" elapsed="0.062781"/>
+<status status="PASS" start="2026-05-31T22:25:27.595350" elapsed="0.067325"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${SELECT_GATE}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-31T22:06:11.874796" elapsed="0.023433"/>
+<status status="PASS" start="2026-05-31T22:25:27.663031" elapsed="0.028162"/>
 </kw>
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:11.898964" level="INFO">Selecting options from selection list 'id=gate' by value AND.</msg>
+<msg time="2026-05-31T22:25:27.692002" level="INFO">Selecting options from selection list 'id=gate' by value AND.</msg>
 <arg>${SELECT_GATE}</arg>
 <arg>${porta}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-31T22:06:11.898494" elapsed="0.065506"/>
+<status status="PASS" start="2026-05-31T22:25:27.691481" elapsed="0.070659"/>
 </kw>
 <arg>AND</arg>
-<status status="PASS" start="2026-05-31T22:06:11.810874" elapsed="0.153308"/>
+<status status="PASS" start="2026-05-31T22:25:27.594836" elapsed="0.167495"/>
 </kw>
 <kw name="Definir entrada A">
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:11.965691" level="INFO">Selecting options from selection list 'id=inputA' by value 1.</msg>
+<msg time="2026-05-31T22:25:27.763905" level="INFO">Selecting options from selection list 'id=inputA' by value 1.</msg>
 <arg>${SELECT_A}</arg>
 <arg>${valor}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-31T22:06:11.965230" elapsed="0.098791"/>
+<status status="PASS" start="2026-05-31T22:25:27.763421" elapsed="0.134284"/>
 </kw>
 <arg>1</arg>
-<status status="PASS" start="2026-05-31T22:06:11.964704" elapsed="0.099604"/>
+<status status="PASS" start="2026-05-31T22:25:27.762961" elapsed="0.134918"/>
 </kw>
 <kw name="Definir entrada B">
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:12.065980" level="INFO">Selecting options from selection list 'id=inputB' by value 1.</msg>
+<msg time="2026-05-31T22:25:27.899492" level="INFO">Selecting options from selection list 'id=inputB' by value 1.</msg>
 <arg>${SELECT_B}</arg>
 <arg>${valor}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.065568" elapsed="0.078945"/>
+<status status="PASS" start="2026-05-31T22:25:27.899082" elapsed="0.099370"/>
 </kw>
 <arg>1</arg>
-<status status="PASS" start="2026-05-31T22:06:12.065001" elapsed="0.079712"/>
+<status status="PASS" start="2026-05-31T22:25:27.898579" elapsed="0.100037"/>
 </kw>
 <kw name="Clicar em simular">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:12.146054" level="INFO">Clicking button 'id=btnGate'.</msg>
+<msg time="2026-05-31T22:25:27.999841" level="INFO">Clicking button 'id=btnGate'.</msg>
 <arg>${BTN_GATE}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.145650" elapsed="0.110238"/>
+<status status="PASS" start="2026-05-31T22:25:27.999474" elapsed="0.125454"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${RESULT_GATE}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.256140" elapsed="0.033925"/>
+<status status="PASS" start="2026-05-31T22:25:28.125167" elapsed="0.037208"/>
 </kw>
-<status status="PASS" start="2026-05-31T22:06:12.145215" elapsed="0.145046"/>
+<status status="PASS" start="2026-05-31T22:25:27.999080" elapsed="0.163477"/>
 </kw>
 <kw name="Resultado deve conter">
 <kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:12.322255" level="INFO">Element 'id=resultGate' contains text '"saida": 1'.</msg>
+<msg time="2026-05-31T22:25:28.195227" level="INFO">Element 'id=resultGate' contains text '"saida": 1'.</msg>
 <arg>${RESULT_GATE}</arg>
 <arg>${texto}</arg>
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.291139" elapsed="0.031248"/>
+<status status="PASS" start="2026-05-31T22:25:28.163521" elapsed="0.031867"/>
 </kw>
 <arg>"saida": 1</arg>
-<status status="PASS" start="2026-05-31T22:06:12.290725" elapsed="0.031801"/>
+<status status="PASS" start="2026-05-31T22:25:28.163075" elapsed="0.032472"/>
 </kw>
-<status status="PASS" start="2026-05-31T22:06:11.807490" elapsed="0.515422"/>
+<status status="PASS" start="2026-05-31T22:25:27.593707" elapsed="0.602291"/>
 </test>
 <test id="s1-t2" name="CT02 - Porta OR com entradas 0 e 0 retorna saida 0" line="27">
 <kw name="Selecionar porta">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:12.325120" level="INFO">Opening url 'http://localhost:3000'</msg>
+<msg time="2026-05-31T22:25:28.198401" level="INFO">Opening url 'http://localhost:3000'</msg>
 <arg>${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.324713" elapsed="0.042937"/>
+<status status="PASS" start="2026-05-31T22:25:28.198159" elapsed="0.044629"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${SELECT_GATE}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.367888" elapsed="0.020196"/>
+<status status="PASS" start="2026-05-31T22:25:28.243154" elapsed="0.027016"/>
 </kw>
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:12.388733" level="INFO">Selecting options from selection list 'id=gate' by value OR.</msg>
+<msg time="2026-05-31T22:25:28.271454" level="INFO">Selecting options from selection list 'id=gate' by value OR.</msg>
 <arg>${SELECT_GATE}</arg>
 <arg>${porta}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.388326" elapsed="0.073967"/>
+<status status="PASS" start="2026-05-31T22:25:28.270573" elapsed="0.095591"/>
 </kw>
 <arg>OR</arg>
-<status status="PASS" start="2026-05-31T22:06:12.324330" elapsed="0.138124"/>
+<status status="PASS" start="2026-05-31T22:25:28.197706" elapsed="0.168617"/>
 </kw>
 <kw name="Definir entrada A">
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:12.464161" level="INFO">Selecting options from selection list 'id=inputA' by value 0.</msg>
+<msg time="2026-05-31T22:25:28.367626" level="INFO">Selecting options from selection list 'id=inputA' by value 0.</msg>
 <arg>${SELECT_A}</arg>
 <arg>${valor}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.463530" elapsed="0.056136"/>
+<status status="PASS" start="2026-05-31T22:25:28.367241" elapsed="0.062434"/>
 </kw>
 <arg>0</arg>
-<status status="PASS" start="2026-05-31T22:06:12.462977" elapsed="0.056848"/>
+<status status="PASS" start="2026-05-31T22:25:28.366794" elapsed="0.063037"/>
 </kw>
 <kw name="Definir entrada B">
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:12.520997" level="INFO">Selecting options from selection list 'id=inputB' by value 0.</msg>
+<msg time="2026-05-31T22:25:28.431043" level="INFO">Selecting options from selection list 'id=inputB' by value 0.</msg>
 <arg>${SELECT_B}</arg>
 <arg>${valor}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.520636" elapsed="0.056420"/>
+<status status="PASS" start="2026-05-31T22:25:28.430664" elapsed="0.055095"/>
 </kw>
 <arg>0</arg>
-<status status="PASS" start="2026-05-31T22:06:12.520237" elapsed="0.056989"/>
+<status status="PASS" start="2026-05-31T22:25:28.430233" elapsed="0.055686"/>
 </kw>
 <kw name="Clicar em simular">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:12.578558" level="INFO">Clicking button 'id=btnGate'.</msg>
+<msg time="2026-05-31T22:25:28.487821" level="INFO">Clicking button 'id=btnGate'.</msg>
 <arg>${BTN_GATE}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.578211" elapsed="0.101056"/>
+<status status="PASS" start="2026-05-31T22:25:28.487349" elapsed="0.103739"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${RESULT_GATE}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.679697" elapsed="0.020618"/>
+<status status="PASS" start="2026-05-31T22:25:28.591449" elapsed="0.021897"/>
 </kw>
-<status status="PASS" start="2026-05-31T22:06:12.577756" elapsed="0.122722"/>
+<status status="PASS" start="2026-05-31T22:25:28.486424" elapsed="0.127083"/>
 </kw>
 <kw name="Resultado deve conter">
 <kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:12.723526" level="INFO">Element 'id=resultGate' contains text '"saida": 0'.</msg>
+<msg time="2026-05-31T22:25:28.640897" level="INFO">Element 'id=resultGate' contains text '"saida": 0'.</msg>
 <arg>${RESULT_GATE}</arg>
 <arg>${texto}</arg>
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.701371" elapsed="0.022344"/>
+<status status="PASS" start="2026-05-31T22:25:28.614315" elapsed="0.026721"/>
 </kw>
 <arg>"saida": 0</arg>
-<status status="PASS" start="2026-05-31T22:06:12.700910" elapsed="0.023011"/>
+<status status="PASS" start="2026-05-31T22:25:28.613904" elapsed="0.027270"/>
 </kw>
-<status status="PASS" start="2026-05-31T22:06:12.323604" elapsed="0.400776"/>
+<status status="PASS" start="2026-05-31T22:25:28.196800" elapsed="0.444757"/>
 </test>
 <test id="s1-t3" name="CT03 - Porta NOT com entrada 1 retorna saida 0" line="34">
 <kw name="Selecionar porta">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:12.730841" level="INFO">Opening url 'http://localhost:3000'</msg>
+<msg time="2026-05-31T22:25:28.643435" level="INFO">Opening url 'http://localhost:3000'</msg>
 <arg>${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.730408" elapsed="0.046862"/>
+<status status="PASS" start="2026-05-31T22:25:28.643253" elapsed="0.019760"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${SELECT_GATE}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.777566" elapsed="0.019450"/>
+<status status="PASS" start="2026-05-31T22:25:28.663302" elapsed="0.049777"/>
 </kw>
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:12.797653" level="INFO">Selecting options from selection list 'id=gate' by value NOT.</msg>
+<msg time="2026-05-31T22:25:28.713735" level="INFO">Selecting options from selection list 'id=gate' by value NOT.</msg>
 <arg>${SELECT_GATE}</arg>
 <arg>${porta}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.797255" elapsed="0.071947"/>
+<status status="PASS" start="2026-05-31T22:25:28.713314" elapsed="0.075434"/>
 </kw>
 <arg>NOT</arg>
-<status status="PASS" start="2026-05-31T22:06:12.729495" elapsed="0.139875"/>
+<status status="PASS" start="2026-05-31T22:25:28.642869" elapsed="0.146095"/>
 </kw>
 <kw name="Definir entrada A">
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:12.870724" level="INFO">Selecting options from selection list 'id=inputA' by value 1.</msg>
+<msg time="2026-05-31T22:25:28.790294" level="INFO">Selecting options from selection list 'id=inputA' by value 1.</msg>
 <arg>${SELECT_A}</arg>
 <arg>${valor}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.870304" elapsed="0.073486"/>
+<status status="PASS" start="2026-05-31T22:25:28.789933" elapsed="0.088711"/>
 </kw>
 <arg>1</arg>
-<status status="PASS" start="2026-05-31T22:06:12.869851" elapsed="0.074101"/>
+<status status="PASS" start="2026-05-31T22:25:28.789509" elapsed="0.089289"/>
 </kw>
 <kw name="Clicar em simular">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:12.945104" level="INFO">Clicking button 'id=btnGate'.</msg>
+<msg time="2026-05-31T22:25:28.880278" level="INFO">Clicking button 'id=btnGate'.</msg>
 <arg>${BTN_GATE}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-31T22:06:12.944766" elapsed="0.087077"/>
+<status status="PASS" start="2026-05-31T22:25:28.879864" elapsed="0.102962"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${RESULT_GATE}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-31T22:06:13.032078" elapsed="0.019908"/>
+<status status="PASS" start="2026-05-31T22:25:28.983058" elapsed="0.023141"/>
 </kw>
-<status status="PASS" start="2026-05-31T22:06:12.944384" elapsed="0.107760"/>
+<status status="PASS" start="2026-05-31T22:25:28.879313" elapsed="0.127051"/>
 </kw>
 <kw name="Resultado deve conter">
 <kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:13.079649" level="INFO">Element 'id=resultGate' contains text '"saida": 0'.</msg>
+<msg time="2026-05-31T22:25:29.033401" level="INFO">Element 'id=resultGate' contains text '"saida": 0'.</msg>
 <arg>${RESULT_GATE}</arg>
 <arg>${texto}</arg>
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2026-05-31T22:06:13.053032" elapsed="0.026747"/>
+<status status="PASS" start="2026-05-31T22:25:29.007232" elapsed="0.026300"/>
 </kw>
 <arg>"saida": 0</arg>
-<status status="PASS" start="2026-05-31T22:06:13.052618" elapsed="0.027300"/>
+<status status="PASS" start="2026-05-31T22:25:29.006811" elapsed="0.026857"/>
 </kw>
-<status status="PASS" start="2026-05-31T22:06:12.728332" elapsed="0.351920"/>
+<status status="PASS" start="2026-05-31T22:25:28.642243" elapsed="0.391771"/>
 </test>
 <test id="s1-t4" name="CT04 - Porta XOR com entradas 1 e 1 retorna saida 0" line="40">
 <kw name="Selecionar porta">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:13.081978" level="INFO">Opening url 'http://localhost:3000'</msg>
+<msg time="2026-05-31T22:25:29.035806" level="INFO">Opening url 'http://localhost:3000'</msg>
 <arg>${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-05-31T22:06:13.081786" elapsed="0.015839"/>
+<status status="PASS" start="2026-05-31T22:25:29.035627" elapsed="0.042228"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${SELECT_GATE}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-31T22:06:13.097884" elapsed="0.040507"/>
+<status status="PASS" start="2026-05-31T22:25:29.078135" elapsed="0.018852"/>
 </kw>
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:13.139110" level="INFO">Selecting options from selection list 'id=gate' by value XOR.</msg>
+<msg time="2026-05-31T22:25:29.097620" level="INFO">Selecting options from selection list 'id=gate' by value XOR.</msg>
 <arg>${SELECT_GATE}</arg>
 <arg>${porta}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-31T22:06:13.138681" elapsed="0.071596"/>
+<status status="PASS" start="2026-05-31T22:25:29.097221" elapsed="0.067338"/>
 </kw>
 <arg>XOR</arg>
-<status status="PASS" start="2026-05-31T22:06:13.081384" elapsed="0.129056"/>
+<status status="PASS" start="2026-05-31T22:25:29.035233" elapsed="0.129495"/>
 </kw>
 <kw name="Definir entrada A">
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:13.211860" level="INFO">Selecting options from selection list 'id=inputA' by value 1.</msg>
+<msg time="2026-05-31T22:25:29.166296" level="INFO">Selecting options from selection list 'id=inputA' by value 1.</msg>
 <arg>${SELECT_A}</arg>
 <arg>${valor}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-31T22:06:13.211429" elapsed="0.068672"/>
+<status status="PASS" start="2026-05-31T22:25:29.165914" elapsed="0.077301"/>
 </kw>
 <arg>1</arg>
-<status status="PASS" start="2026-05-31T22:06:13.210927" elapsed="0.069334"/>
+<status status="PASS" start="2026-05-31T22:25:29.165438" elapsed="0.078007"/>
 </kw>
 <kw name="Definir entrada B">
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:13.281409" level="INFO">Selecting options from selection list 'id=inputB' by value 1.</msg>
+<msg time="2026-05-31T22:25:29.245211" level="INFO">Selecting options from selection list 'id=inputB' by value 1.</msg>
 <arg>${SELECT_B}</arg>
 <arg>${valor}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-31T22:06:13.281044" elapsed="0.084637"/>
+<status status="PASS" start="2026-05-31T22:25:29.244638" elapsed="0.082265"/>
 </kw>
 <arg>1</arg>
-<status status="PASS" start="2026-05-31T22:06:13.280646" elapsed="0.085199"/>
+<status status="PASS" start="2026-05-31T22:25:29.244030" elapsed="0.083027"/>
 </kw>
 <kw name="Clicar em simular">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:13.366998" level="INFO">Clicking button 'id=btnGate'.</msg>
+<msg time="2026-05-31T22:25:29.328121" level="INFO">Clicking button 'id=btnGate'.</msg>
 <arg>${BTN_GATE}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-31T22:06:13.366662" elapsed="0.085488"/>
+<status status="PASS" start="2026-05-31T22:25:29.327798" elapsed="0.098877"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${RESULT_GATE}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-31T22:06:13.452391" elapsed="0.017421"/>
+<status status="PASS" start="2026-05-31T22:25:29.426939" elapsed="0.020454"/>
 </kw>
-<status status="PASS" start="2026-05-31T22:06:13.366278" elapsed="0.103695"/>
+<status status="PASS" start="2026-05-31T22:25:29.327445" elapsed="0.120153"/>
 </kw>
 <kw name="Resultado deve conter">
 <kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2026-05-31T22:06:13.488413" level="INFO">Element 'id=resultGate' contains text '"saida": 0'.</msg>
+<msg time="2026-05-31T22:25:29.468878" level="INFO">Element 'id=resultGate' contains text '"saida": 0'.</msg>
 <arg>${RESULT_GATE}</arg>
 <arg>${texto}</arg>
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2026-05-31T22:06:13.470782" elapsed="0.017758"/>
+<status status="PASS" start="2026-05-31T22:25:29.448573" elapsed="0.020428"/>
 </kw>
 <arg>"saida": 0</arg>
-<status status="PASS" start="2026-05-31T22:06:13.470358" elapsed="0.018321"/>
+<status status="PASS" start="2026-05-31T22:25:29.448159" elapsed="0.020979"/>
 </kw>
-<status status="PASS" start="2026-05-31T22:06:13.080750" elapsed="0.408240"/>
+<status status="PASS" start="2026-05-31T22:25:29.034564" elapsed="0.435541"/>
 </test>
 <kw name="Fechar navegador" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-05-31T22:06:13.490599" elapsed="2.234507"/>
+<status status="PASS" start="2026-05-31T22:25:29.473033" elapsed="2.246052"/>
 </kw>
-<status status="PASS" start="2026-05-31T22:06:13.490282" elapsed="2.235139"/>
+<status status="PASS" start="2026-05-31T22:25:29.472646" elapsed="2.247015"/>
 </kw>
-<status status="PASS" start="2026-05-31T22:06:06.363942" elapsed="9.361595"/>
+<status status="PASS" start="2026-05-31T22:25:25.266647" elapsed="6.453261"/>
 </suite>
 <statistics>
 <total>

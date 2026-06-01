@@ -16,7 +16,6 @@ app.post('/gate', (req, res) => {
 
   const validGates = ['AND', 'OR', 'NOT', 'XOR'];
 
-  // Validação: gate obrigatório e válido
   if (!gate || !validGates.includes(gate.toUpperCase())) {
     return res.status(400).json({
       status: 'erro',
@@ -26,8 +25,8 @@ app.post('/gate', (req, res) => {
     });
   }
 
-  // Validação: entradas devem ser 0 ou 1
   const validBits = [0, 1];
+
   if (!validBits.includes(a)) {
     return res.status(400).json({
       status: 'erro',
@@ -37,7 +36,6 @@ app.post('/gate', (req, res) => {
     });
   }
 
-  // NOT só precisa de A
   if (gate.toUpperCase() !== 'NOT' && !validBits.includes(b)) {
     return res.status(400).json({
       status: 'erro',
@@ -48,30 +46,42 @@ app.post('/gate', (req, res) => {
   }
 
   let saida;
+
   switch (gate.toUpperCase()) {
-    case 'AND': saida = a & b; break;
-    case 'OR':  saida = a | b; break;
-    case 'NOT': saida = a === 1 ? 0 : 1; break;
-    case 'XOR': saida = a ^ b; break;
+    case 'AND':
+      saida = a & b;
+      break;
+
+    case 'OR':
+      saida = a | b;
+      break;
+
+    case 'NOT':
+      saida = a === 1 ? 0 : 1;
+      break;
+
+    case 'XOR':
+      saida = a ^ b;
+      break;
   }
 
   return res.status(200).json({
     status: 'sucesso',
     gate: gate.toUpperCase(),
-    entradas: gate.toUpperCase() === 'NOT' ? { a } : { a, b },
+    entradas: gate.toUpperCase() === 'NOT'
+      ? { a }
+      : { a, b },
     saida,
     timestamp: new Date().toISOString()
   });
 });
 
 // ─────────────────────────────────────────────
-// POST /ieee754 — Converte decimal para IEEE 754 (32 bits)
-// Entrada: { valor: number }
+// POST /ieee754 — Converte decimal para IEEE 754
 // ─────────────────────────────────────────────
 app.post('/ieee754', (req, res) => {
   const { valor } = req.body;
 
-  // Validação: campo obrigatório
   if (valor === undefined || valor === null || valor === '') {
     return res.status(400).json({
       status: 'erro',
@@ -81,7 +91,6 @@ app.post('/ieee754', (req, res) => {
     });
   }
 
-  // Validação: deve ser numérico
   if (typeof valor !== 'number' || isNaN(valor)) {
     return res.status(400).json({
       status: 'erro',
@@ -91,14 +100,16 @@ app.post('/ieee754', (req, res) => {
     });
   }
 
-  // Conversão IEEE 754 32 bits
   const buffer = Buffer.allocUnsafe(4);
   buffer.writeFloatBE(valor, 0);
-  const bits = buffer.readUInt32BE(0).toString(2).padStart(32, '0');
 
-  const sinal     = bits[0];
-  const expoente  = bits.slice(1, 9);
-  const mantissa  = bits.slice(9);
+  const bits = buffer.readUInt32BE(0)
+    .toString(2)
+    .padStart(32, '0');
+
+  const sinal = bits[0];
+  const expoente = bits.slice(1, 9);
+  const mantissa = bits.slice(9);
   const binario32 = bits;
 
   return res.status(200).json({
@@ -115,6 +126,7 @@ app.post('/ieee754', (req, res) => {
 });
 
 const PORT = 3000;
+
 app.listen(PORT, () => {
   console.log(`BitPulse Engine rodando em http://localhost:${PORT}`);
 });
